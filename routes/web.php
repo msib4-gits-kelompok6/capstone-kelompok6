@@ -16,3 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/landing-page', function () {
+    return view('user.landingpage');
+});
+
+Route::get('/service-page', function () {
+    return view('user.servicepage');
+});
+
+
+Route::get('/detailbengkel-page', function () {
+    return view('user.detailbengkelpage');
+});
