@@ -18,26 +18,38 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/landing-page', function () {
+Route::get('/landingpage', function () {
     return view('user.landingpage');
-});
+})->middleware('auth:web');
 
-Route::get('/service-page', function () {
+Route::get('/servicepage', function () {
     return view('user.servicepage');
-});
+})->middleware('auth:web');
 
-
-Route::get('/detailbengkel-page', function () {
+Route::get('/detailbengkelpage', function () {
     return view('user.detailbengkelpage');
-});
-Route::get('/pesan-page', function () {
-    return view('user.pemesananpage');
-});
+})->middleware('auth:web');
 
-Route::get('/profileuser-page', function () {
+Route::get('/pesanpage', function () {
+    return view('user.pemesananpage');
+})->middleware('auth:web');
+
+Route::get('/profileuserpage', function () {
     return view('user.profileuserpage');
-});
+})->middleware('auth:web');
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('login', [AuthController::class, 'doLogin']);
+Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/userregister', [AuthController::class, "userregister"])->name('userregister');
 Route::get('/ownerregister', [AuthController::class, "ownerregister"])->name('ownerregister');
+Route::post('/userregister', [AuthController::class, "douserregister"])->name('do.userregister');
+Route::post('/ownerregister', [AuthController::class, "doownerregister"])->name('do.ownerregister');
+
+Route::get('/adminindex', function () {
+    return view('admin.index');
+})->middleware('auth:admin');
+
+Route::get('/bengkelindex', function () {
+    return view('bengkel.index');
+})->middleware('auth:pemilikbengkel');

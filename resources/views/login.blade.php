@@ -27,7 +27,7 @@
                 <h3 class="text-center">Welcome Back to Bengkelin</h3>
                 <p class="text-secondary text-center">Please enter your data</p>
             </div>
-            <form method="POST" action="#">
+            <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>

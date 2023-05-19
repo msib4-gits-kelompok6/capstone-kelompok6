@@ -11,15 +11,20 @@
                     <a class="nav-link" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link" href="#">Services</a>
+                    <a class="nav-link" href="{{ url('servicepage') }}">Services</a>
                 </li>
                 <li class="nav-item mx-2">
                     <a class="nav-link" href="#">About Us</a>
                 </li>
             </ul>
-            <div class="kanan">
-                <a href="#" class="btn btn-lg login btn-outline-primary mx-2">Login</a>
-                <a href="#" class="btn btn-lg signup mx-2">Sign Up</a>
+            <div class="kanan navbar-nav ml-auto">
+                @guest
+                    <a href="{{ route('login') }}" class="btn btn-lg login btn-outline-primary mx-2">Login</a>
+                    <a href="#" class="btn btn-lg signup mx-2">Sign Up</a>
+                @endguest
+                @auth
+                    <a href="{{ url('logout') }}" class="btn btn-lg login btn-outline-primary mx-2">Logout</a>
+                @endauth
             </div>
         </div>
     </div>
