@@ -32,3 +32,7 @@ Route::get('/detailbengkel-page', function () {
 Route::get('/pesan-page', function () {
     return view('user.pemesananpage');
 });
+
+Route::get('/profileuser-page', function () {
+    return view('user.profileuserpage');
+});
