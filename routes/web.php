@@ -29,3 +29,6 @@ Route::get('/service-page', function () {
 Route::get('/detailbengkel-page', function () {
     return view('user.detailbengkelpage');
 });
+Route::get('/pesan-page', function () {
+    return view('user.pemesananpage');
+});
