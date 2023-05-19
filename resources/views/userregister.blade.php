@@ -27,9 +27,8 @@
                 <h3 class="text-center">Welcome Customer</h3>
                 <p class="text-secondary text-center">Enter your data to continue your journey</p>
             </div>
-            <form method="POST" action="#">
+            <form method="POST" action="{{ route('do.userregister') }}">
                 @csrf
-                {{-- @method('PUT') --}}
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
                     <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
