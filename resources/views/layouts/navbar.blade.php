@@ -8,13 +8,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item mx-2">
-                    <a class="nav-link" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" aria-current="page" href="/landingpage">Home</a>
                 </li>
                 <li class="nav-item mx-2">
                     <a class="nav-link" href="{{ url('servicepage') }}">Services</a>
                 </li>
                 <li class="nav-item mx-2">
                     <a class="nav-link" href="#">About Us</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a href="/profileuser" class="nav-link">Profile</a>
                 </li>
             </ul>
             <div class="kanan navbar-nav ml-auto">
