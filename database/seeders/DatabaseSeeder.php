@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('admins')->insert([
             [
-                'id' => 1,
                 'name' => 'Admin',
                 'email' => 'admin@gmail.com',
                 'password' => Hash::make('admin123'),
@@ -27,7 +26,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('users')->insert([
             [
-                'id' => 1,
                 'name' => 'User1',
                 'email' => 'user1@gmail.com',
                 'phone_number' => '083891428869',
@@ -38,11 +36,19 @@ class DatabaseSeeder extends Seeder
 
         DB::table('pemilik_bengkels')->insert([
             [
-                'id' => 1,
                 'name' => 'Owner1',
                 'email' => 'owner1@gmail.com',
                 'phone_number' => '083891428869',
                 'password' => Hash::make('owner12345'),
+            ]
+        ]);
+
+        DB::table('category_kendaraans')->insert([
+            [
+                'name' => 'Mobil',
+            ],
+            [
+                'name' => 'Motor',
             ]
         ]);
     }

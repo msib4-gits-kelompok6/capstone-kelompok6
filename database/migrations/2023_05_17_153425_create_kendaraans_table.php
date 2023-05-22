@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('merk', 100);
             $table->string('model');
             $table->string('plat');
+            $table->foreignId('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreignId('category_kendaraan_id');
             $table->foreign('category_kendaraan_id')->references('id')->on('category_kendaraans')->onDelete('cascade');
             $table->timestamps();

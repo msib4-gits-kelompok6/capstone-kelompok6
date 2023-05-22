@@ -14,6 +14,7 @@ class Kendaraan extends Model
         'model',
         'plat',
         'category_kendaraan_id',
+        'user_id'
     ];
 
     public function category_kendaraan()
@@ -24,5 +25,10 @@ class Kendaraan extends Model
     public function booking()
     {
         return $this->hasMany(Booking::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
