@@ -93,7 +93,7 @@ class AuthController extends Controller
 
         if (Auth::guard('pemilikbengkel')->attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect('bengkelindex');
+            return redirect()->route('bengkel.index');
         }
 
         return back()->withErrors([

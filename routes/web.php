@@ -3,6 +3,9 @@
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BengkelController;
+use App\Http\Controllers\LayananController;
+use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\ProfileUserController;
 
 /*
@@ -66,9 +69,10 @@ Route::get('/adminlistuser/{id}/delete', [AdminController::class, 'destroyuser']
 Route::get('/adminlistowner', [AdminController::class, 'listowner'])->name('showlistowner');
 Route::get('/adminlistowner/{id}/delete', [AdminController::class, 'destroyowner'])->name('deletelistowner');
 
-
-
 // BENGKEL
-Route::get('/bengkelindex', function () {
-    return view('bengkel.index');
-})->middleware('auth:pemilikbengkel');
+Route::prefix('/owner')->middleware('auth:pemilikbengkel')->group(function () {
+    Route::get('/' , [ BengkelController::class , 'index'])->name('bengkel.index');
+    Route::resource('bengkel', BengkelController::class);
+    Route::resource('layanan', LayananController::class);
+    Route::resource('jadwal', JadwalController::class);
+});
