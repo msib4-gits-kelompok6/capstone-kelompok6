@@ -18,10 +18,37 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('admins')->insert([
             [
-                'id' => 1,
                 'name' => 'Admin',
                 'email' => 'admin@gmail.com',
                 'password' => Hash::make('admin123'),
+            ]
+        ]);
+
+        DB::table('users')->insert([
+            [
+                'name' => 'User1',
+                'email' => 'user1@gmail.com',
+                'phone_number' => '083891428869',
+                'alamat' => 'Kabupaten Tangerang',
+                'password' => Hash::make('user12345'),
+            ]
+        ]);
+
+        DB::table('pemilik_bengkels')->insert([
+            [
+                'name' => 'Owner1',
+                'email' => 'owner1@gmail.com',
+                'phone_number' => '083891428869',
+                'password' => Hash::make('owner12345'),
+            ]
+        ]);
+
+        DB::table('category_kendaraans')->insert([
+            [
+                'name' => 'Mobil',
+            ],
+            [
+                'name' => 'Motor',
             ]
         ]);
     }
