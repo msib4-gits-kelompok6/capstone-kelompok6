@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BengkelController;
+use App\Http\Controllers\LayananController;
+use App\Http\Controllers\JadwalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +53,10 @@ Route::get('/adminindex', function () {
     return view('admin.index');
 })->middleware('auth:admin');
 
-Route::get('/bengkelindex', function () {
-    return view('bengkel.index');
-})->middleware('auth:pemilikbengkel');
+Route::prefix('/owner')->middleware('auth:pemilikbengkel')->group(function () {
+
+    Route::get('/' , [ BengkelController::class , 'index'])->name('bengkel.index');
+    Route::resource('bengkel', BengkelController::class);
+    Route::resource('layanan', LayananController::class);
+    Route::resource('jadwal', JadwalController::class);
+});
