@@ -405,6 +405,24 @@ a.icon-motor {
     margin-bottom: 200px;
 }
 
+label {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0.01em;
+}
+
+input {
+    height: 45px;
+    border-radius: 8px;
+}
+
+select {
+    height: 45px;
+    border-radius: 8px;
+}
+
 .profileuser .data-user form label {
     font-style: normal;
     font-weight: 600;
