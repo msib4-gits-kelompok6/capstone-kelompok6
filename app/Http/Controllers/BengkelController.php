@@ -13,7 +13,7 @@ class BengkelController extends Controller
 {
     public function index()
     {
-        $data['bengkels'] = Bengkel::with('pemilik_bengkels')->orderBy('created_at', 'DESC')->get();
+        $data['bengkels'] = Bengkel::where('pemilik_id', Auth::id())->get();
         $item['owner'] = PemilikBengkel::all();
         return view('mitra.bengkel.index', $data, $item);
     }
