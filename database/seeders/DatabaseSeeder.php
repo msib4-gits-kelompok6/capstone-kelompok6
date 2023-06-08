@@ -40,6 +40,12 @@ class DatabaseSeeder extends Seeder
                 'email' => 'owner1@gmail.com',
                 'phone_number' => '083891428869',
                 'password' => Hash::make('owner12345'),
+            ],
+            [
+                'name' => 'Owner2',
+                'email' => 'owner2@gmail.com',
+                'phone_number' => '083891428869',
+                'password' => Hash::make('owner23456'),
             ]
         ]);
 
