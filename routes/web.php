@@ -76,7 +76,7 @@ Route::prefix('/owner')->middleware('auth:pemilikbengkel')->group(function () {
     Route::resource('jadwal', JadwalController::class);
 });
 
-Route::middleware(['auth:pemilikbengkel'])->group(function () {
+Route::prefix('/owner')->middleware(['auth:pemilikbengkel'])->group(function () {
     Route::get('/transaksi', [TransaksiController::class, 'transaksi'])->name('bengkeltransaksi');
     Route::get('/transaksi/{id}/edit', [TransaksiController::class, 'edittransaksi']);
     Route::put('/transaksi/{id}', [TransaksiController::class, 'updatetransaksi'])->name('updatetransaksi');

@@ -52,50 +52,9 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="data-bengkel mb-5">
-                    <h1 class="fw-bold">Data Transaksi Bengkel</h1>
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col">Booking ID</th>
-                                <th scope="col">User</th>
-                                <th scope="col">Waktu Booking</th>
-                                <th scope="col">Nama Layanan</th>
-                                <th scope="col">Harga</th>
-                                <th scope="col">Total Harga</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($bengkels as $bengkel)
-                                @foreach ($transaksi as $item)
-                                    @php
-                                        $total_price = 0;
-                                    @endphp
-                                    @if ($bengkel->id == $item->booking->bengkel_id)
-                                        @php
-                                            $total_price += $item->layanan->price * $item->qty;
-                                        @endphp
-                                        <tr>
-                                            <td>{{ $item->booking->id }}</td>
-                                            <td>{{ $item->booking->user->name }}</td>
-                                            <td>{{ $item->booking->waktu_booking }}</td>
-                                            <td>{{ $item->layanan->name }}</td>
-                                            <td>{{ $item->layanan->price }}</td>
-                                            <td>{{ $total_price }}</td>
-                                        </tr>
-                                    @endif
-                                @endforeach
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
             @endforeach
         </div>
         <!-- /.card-body -->
-        <div class="mb-5 p-3">
-            <div class="mb-1">
-                {{ $transaksi->links() }}
-            </div>
-        </div>
+
     </div>
 @endsection

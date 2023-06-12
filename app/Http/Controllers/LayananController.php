@@ -4,15 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Layanan;
 use App\Models\Bengkel;
+use App\Models\PemilikBengkel;
 
 class LayananController extends Controller
 {
     public function index()
     {
-        $data['layanans'] = Layanan::with('bengkel')->orderBy('created_at', 'DESC')->get();
-        $item['bengkels'] = Bengkel::all();
+        $item['bengkels'] = Bengkel::where('pemilik_id', Auth::id())->get();
+        $bengkel_ids = $item['bengkels']->map(function ($bengkel) {
+            return $bengkel->id;
+        });
+        $data['layanans'] = Layanan::with('bengkel')->whereIn('bengkel_id', $bengkel_ids)->orderBy('created_at', 'DESC')->get();
         return view('mitra.layanan.index', $data, $item);
     }
 

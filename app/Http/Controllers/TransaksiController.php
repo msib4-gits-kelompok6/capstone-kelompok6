@@ -6,15 +6,21 @@ use App\Models\Bengkel;
 use App\Models\Booking;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TransaksiController extends Controller
 {
     public function transaksi()
     {
+        $item['bengkels'] = Bengkel::where('pemilik_id', Auth::id())->get();
+        // dd($item);
+        $bengkel_ids = $item['bengkels']->map(function ($bengkel) {
+            return $bengkel->id;
+        });
+
         $transaksi = Booking::with(['kendaraan', 'user', 'bengkel', 'layanans', 'detail_layanan_bookings'])
-            ->paginate(4);
-        // dd($transaksi);
-        return view('mitra/bengkel/transaksi', ['transaksi' => $transaksi]);
+            ->where('bengkel_id', $bengkel_ids)->get();
+        return view('mitra/bengkel/transaksi', ['bookings' => $transaksi], $item);
     }
 
     public function edittransaksi($id)

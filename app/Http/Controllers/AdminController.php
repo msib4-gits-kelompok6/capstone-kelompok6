@@ -66,9 +66,8 @@ class AdminController extends Controller
         $ownerCount = PemilikBengkel::count();
         $owner['pemilik_bengkels'] = PemilikBengkel::findOrFail($id);
         $databengkel = Bengkel::with(['pemilik_bengkels'])->get();
-        $datatransaksi = DetailLayananBooking::with(['booking', 'layanan'])->paginate(8);
         // dd($datatransaksi);
-        return view('admin/detailowner', ['transaksi' => $datatransaksi, 'bengkels' => $databengkel, 'pemilik_bengkels' => $owner, 'owners_count' => $ownerCount, 'users_count' => $userCount, 'bengkels_count' => $bengkelCount]);
+        return view('admin/detailowner', ['bengkels' => $databengkel, 'pemilik_bengkels' => $owner, 'owners_count' => $ownerCount, 'users_count' => $userCount, 'bengkels_count' => $bengkelCount]);
     }
 
     public function destroyowner($id)

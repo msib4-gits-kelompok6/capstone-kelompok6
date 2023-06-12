@@ -24,7 +24,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($transaksi as $item)
+                        @foreach ($bookings as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->user->name }}</td>
@@ -41,10 +41,10 @@
                 </table>
             </div>
         </div>
-        <div class="mt-5">
-            {{ $transaksi->links() }}
+        {{-- <div class="mt-5">
+            {{ $bookings->links() }}
 
-        </div>
+        </div> --}}
     </div>
 
 @endsection

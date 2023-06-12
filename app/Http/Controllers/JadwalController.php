@@ -4,14 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Jadwal;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Bengkel;
+use App\Models\PemilikBengkel;
 
 class JadwalController extends Controller
 {
     public function index()
     {
-        $data['jadwals'] = Jadwal::with('bengkel')->orderBy('created_at', 'DESC')->get();
-        $item['bengkels'] = Bengkel::all();
+        $item['bengkels'] = Bengkel::where('pemilik_id', Auth::id())->get();
+        $bengkel_ids = $item['bengkels']->map(function ($bengkel) {
+            return $bengkel->id;
+        });
+        $data['jadwals'] = Jadwal::with('bengkel')->whereIn('bengkel_id', $bengkel_ids)->orderBy('created_at', 'DESC')->get();
         return view('mitra.jadwal.index', $data, $item);
     }
 
