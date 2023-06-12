@@ -15,7 +15,14 @@
     <style>
         .login-box {
             border: solid 1px gray;
-            width: 500px
+            width: 500px;
+            background-color: white;
+        }
+
+        body {
+            background-color: #e5e5f7;
+            opacity: 0.8;
+            background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #e5e5f7 10px), repeating-linear-gradient(#444cf755, #444cf7);
         }
     </style>
 </head>
@@ -29,7 +36,7 @@
             </div>
             <form method="POST" action="{{ route('login') }}">
                 @csrf
-                <div class="mb-3">
+                <div class="mb-3 form">
                     <label for="email" class="form-label">Email</label>
                     <input type="email" name="email" id="email"
                         class="form-control @error('email') is-invalid @enderror" required>
@@ -37,7 +44,7 @@
                         <div id="emailHelp" class="form-text">{{ $message }}</div>
                     @enderror
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 form">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" name="password" id="password"
                         class="form-control @error('password') is-invalid @enderror" required>
@@ -47,12 +54,15 @@
                 </div>
                 <div class="mb-3 mt-5 ">
                     <button class="btn btn-primary w-100" type="sub
-                    ">Login</button>
+                    "
+                        style="border-radius: 20px;">Login</button>
                     <p class="mt-3 text-center">Belum punya akun?</p>
-                    <a href="{{ route('userregister') }}" class="btn btn-md btn-primary rounded w-100 my-3">Daftar
+                    <a href="{{ route('userregister') }}" class="btn btn-md btn-primary w-100 mb-2 mt-2"
+                        style="border-radius: 20px;">Daftar
                         Sebagai
                         User</a>
-                    <a href="{{ route('ownerregister') }}" class="btn btn-md btn-primary rounded w-100">Daftar Sebagai
+                    <a href="{{ route('ownerregister') }}" class="btn btn-md btn-primary w-100"
+                        style="border-radius: 20px">Daftar Sebagai
                         Mitra</a>
                 </div>
             </form>

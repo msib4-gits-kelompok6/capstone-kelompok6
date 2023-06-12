@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use App\Models\CategoryKendaraan;
+use App\Models\DetailLayananBooking;
 use App\Models\Kendaraan;
+use App\Models\Layanan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class ProfileUserController extends Controller
 {
@@ -55,7 +59,7 @@ class ProfileUserController extends Controller
             // 'image' => $newImage['image']
         ]);
 
-        return redirect('/profileuser');
+        return redirect('/profileuser')->with('success', 'Profile Berhasil Diubah!');
     }
 
     public function showkendaraan()
@@ -97,7 +101,7 @@ class ProfileUserController extends Controller
             'user_id' => Auth::user()->id
         ]);
 
-        return redirect('/profilekendaraan');
+        return redirect('/profilekendaraan')->with('success', 'Kendaraan Berhasil Ditambahkan!');
     }
 
     public function editkendaraan($id)
@@ -132,15 +136,28 @@ class ProfileUserController extends Controller
             'plat' => $validated['plat'],
         ]);
 
-
-        return redirect('/profilekendaraan');
+        return redirect('/profilekendaraan')->with('success', 'Kendaraan Berhasil Diedit!');
     }
-
 
     public function destroykendaraan($id)
     {
         Kendaraan::destroy($id);
 
-        return redirect('/profilekendaraan');
+        return redirect('/profilekendaraan')->with('success', 'Kendaraan Berhasil Dihapus!');
+    }
+
+    public function showtransaksi()
+    {
+        $user = Auth::user();
+        $idUser = $user->id;
+
+        $booking = Booking::with(['kendaraan', 'user', 'bengkel'])
+            ->where('user_id', $idUser)->orderBy('id', 'desc')->paginate(4);
+
+        $detail_booking = DetailLayananBooking::with(['booking', 'layanan'])->get();
+        // dd($detail_booking);
+
+        // dd($booking);
+        return view('user/profiletransaksi', ['user' => $user, 'transaksi' => $booking, 'detail_booking' => $detail_booking]);
     }
 }

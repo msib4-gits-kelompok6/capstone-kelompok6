@@ -83,7 +83,7 @@ class AuthController extends Controller
 
         if (Auth::guard('web')->attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect('landingpage');
+            return redirect('/');
         }
 
         if (Auth::guard('admin')->attempt($credentials)) {

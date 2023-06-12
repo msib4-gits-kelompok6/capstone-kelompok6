@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->dateTime('waktu_booking');
-            $table->boolean('status');
-            $table->boolean('tipe_booking');
+            $table->longText('catatan_tambahan')->nullable(true);
+            $table->string('status');
+            $table->string('tipe_booking');
             $table->foreignId('kendaraan_id');
             $table->foreign('kendaraan_id')->references('id')->on('kendaraans')->onDelete('cascade');
             $table->foreignId('user_id');

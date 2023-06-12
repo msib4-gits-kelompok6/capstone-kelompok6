@@ -26,6 +26,7 @@
     @include('layouts.navbar')
     <div>
         @yield('content')
+        @include('sweetalert::alert')
     </div>
 
     @include('layouts.footer')
