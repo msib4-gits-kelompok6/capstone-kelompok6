@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('detail_layanan_bookings', function (Blueprint $table) {
             $table->id();
-            $table->text('catatan');
-            $table->integer('harga_tambahan');
+            $table->integer('qty')->default(1);
             $table->foreignId('booking_id');
             $table->foreign('booking_id')->references('id')->on('bookings')->onDelete('cascade');
             $table->foreignId('layanan_id');

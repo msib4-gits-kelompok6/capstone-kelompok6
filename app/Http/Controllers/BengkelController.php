@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Bengkel;
+use App\Models\Booking;
 use App\Models\PemilikBengkel;
 
 class BengkelController extends Controller
@@ -26,8 +27,8 @@ class BengkelController extends Controller
 
     public function store(Request $request)
     {
-        
-        $imageName = time().'.'.$request->image->extension();
+
+        $imageName = time() . '.' . $request->image->extension();
 
         $request->image->move(public_path('images'), $imageName);
 
@@ -56,7 +57,7 @@ class BengkelController extends Controller
     {
         $bengkel = Bengkel::findOrFail($id);
         if ($request->hasFile('image')) {
-            $imageName = time().'.'.$request->image->extension();
+            $imageName = time() . '.' . $request->image->extension();
 
             $request->image->move(public_path('images'), $imageName);
 

@@ -28,99 +28,36 @@
                 </div>
             </div>
             <div class="row d-flex justify-content-center align-items-center">
-                <div class="col col-lg-4">
-                    <form action="">
-                        <input type="text" class="form-control" aria-describedby="emailHelp"
-                            placeholder="Cari berdasarkan kota">
+                <div class="col col-lg-8">
+                    <form action="" method="GET">
+                        @csrf
+                        <input type="text" class="form-control" placeholder="Cari bengkel disini" name="keyword">
                     </form>
-                </div>
-                <div class="d-flex justify-content-between align-items-center col col-lg-2 ">
-                    <a href="#" class="btn btn-md btn-secondary icon-mobil"><img
-                            src="{{ asset('css/icon-mobil.png') }}" alt="">
-                        Mobil</a>
-                    <a href="#" class="btn btn-md btn-secondary icon-motor"><img
-                            src="{{ asset('css/icon-motor.png') }}" alt="">
-                        Motor</a>
                 </div>
             </div>
             <div class="row row-cols-1 row-cols-md-3 g-4 bengkel">
-                <div class="col">
-                    <div class="card">
-                        <img src="{{ asset('css/service-mobil.jpg') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Mutiara Jaya AC</h5>
-                            <div class=" d-flex align-items-center location">
-                                <img src="{{ asset('css/icon-location.png') }}">
-                                <p>Tangerang</p>
+                @php
+                    $total_price = 0;
+                @endphp
+                @foreach ($bengkels as $bengkel)
+                    <div class="col">
+                        <div class="card">
+                            <img src="{{ asset('images/' . $bengkel->image) }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $bengkel->name }}</h5>
+                                <div class=" d-flex align-items-center location">
+                                    <img src="{{ asset('css/icon-location.png') }}">
+                                    <p>{{ $bengkel->alamat }}</p>
+                                </div>
+                                <a href="/detailbengkel/{{ $bengkel->id }}" class="btn btn-primary">Lihat Bengkel</a>
                             </div>
-                            <a href="#" class="btn btn-primary">Lihat Bengkel</a>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <img src="{{ asset('css/service-mobil.jpg') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Mutiara Jaya AC</h5>
-                            <div class=" d-flex align-items-center location">
-                                <img src="{{ asset('css/icon-location.png') }}">
-                                <p>Tangerang</p>
-                            </div>
-                            <a href="#" class="btn btn-primary">Lihat Bengkel</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <img src="{{ asset('css/service-mobil.jpg') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Mutiara Jaya AC</h5>
-                            <div class=" d-flex align-items-center location">
-                                <img src="{{ asset('css/icon-location.png') }}">
-                                <p>Tangerang</p>
-                            </div>
-                            <a href="#" class="btn btn-primary">Lihat Bengkel</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <img src="{{ asset('css/service-mobil.jpg') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Mutiara Jaya AC</h5>
-                            <div class=" d-flex align-items-center location">
-                                <img src="{{ asset('css/icon-location.png') }}">
-                                <p>Tangerang</p>
-                            </div>
-                            <a href="#" class="btn btn-primary">Lihat Bengkel</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <img src="{{ asset('css/service-mobil.jpg') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Mutiara Jaya AC</h5>
-                            <div class=" d-flex align-items-center location">
-                                <img src="{{ asset('css/icon-location.png') }}">
-                                <p>Tangerang</p>
-                            </div>
-                            <a href="#" class="btn btn-primary">Lihat Bengkel</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <img src="{{ asset('css/service-mobil.jpg') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Mutiara Jaya AC</h5>
-                            <div class=" d-flex align-items-center location">
-                                <img src="{{ asset('css/icon-location.png') }}">
-                                <p>Tangerang</p>
-                            </div>
-                            <a href="#" class="btn btn-primary">Lihat Bengkel</a>
-                        </div>
-                    </div>
+                @endforeach
+            </div>
+            <div class="my-5">
+                <div class="mb-1">
+                    {{ $bengkels->links() }}
                 </div>
             </div>
         </div>

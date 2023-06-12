@@ -15,7 +15,14 @@
     <style>
         .register-box {
             border: solid 1px gray;
-            width: 500px
+            width: 500px;
+            background-color: white;
+        }
+
+        body {
+            background-color: #e5e5f7;
+            opacity: 0.8;
+            background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #e5e5f7 10px), repeating-linear-gradient(#444cf755, #444cf7);
         }
     </style>
 </head>
@@ -84,7 +91,8 @@
                 </div>
 
                 <div class="mb-3 mt-5 ">
-                    <button class="btn btn-primary w-100" type="sub
+                    <button class="btn btn-primary w-100" style="border-radius: 20px"
+                        type="sub
                     ">Register</button>
                     <p class="mt-3">
                         Sudah punya akun?

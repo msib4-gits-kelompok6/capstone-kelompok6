@@ -10,13 +10,13 @@ class DetailLayananBooking extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id_layanan',
-        'id_booking',
+        'layanan_id',
+        'booking_id',
         'catatan',
         'harga_tambahan',
     ];
 
-    public function layanans()
+    public function layanan()
     {
         return $this->belongsTo(Layanan::class);
     }

@@ -13,7 +13,8 @@ class Bengkel extends Model
         'name',
         'image',
         'description',
-        'alamat'
+        'alamat',
+        'pemilik_id'
     ];
 
     public function layanans()

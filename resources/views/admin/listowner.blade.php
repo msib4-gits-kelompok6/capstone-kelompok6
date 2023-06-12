@@ -34,6 +34,7 @@
                             <td>{{ $item->phone_number }}</td>
                             <td><a href="/adminlistowner/{{ $item->id }}/delete"
                                     class="btn btn-danger text-white">Hapus</a>
+                                <a href="/detailowner/{{ $item->id }}" class="btn btn-warning text-white">Detail</a>
                             </td>
                         </tr>
                     @endforeach

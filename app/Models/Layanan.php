@@ -20,8 +20,13 @@ class Layanan extends Model
         return $this->belongsTo(Bengkel::class);
     }
 
-    public function detail_layanan_booking()
+    public function booking()
     {
-        return $this->hasMany(DetailLayananBooking::class);
+        return $this->hasMany(Booking::class);
+    }
+
+    public function detail_layanan_bookings()
+    {
+        return $this->hasMany(DetailLayananBookings::class);
     }
 }
