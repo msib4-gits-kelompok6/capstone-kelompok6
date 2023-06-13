@@ -16,7 +16,7 @@
                     <a class="nav-link" href="{{ url('servicepage') }}">Services</a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link" href="#">About Us</a>
+                    <a class="nav-link" href="{{ url('aboutpage') }}">About Us</a>
                 </li>
             </ul>
             <div class="kanan navbar-nav ml-auto">
