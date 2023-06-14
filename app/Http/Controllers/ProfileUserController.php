@@ -64,10 +64,15 @@ class ProfileUserController extends Controller
 
     public function showkendaraan()
     {
+        $user = Auth::user();
+        $idUser = $user->id;
         //menampilkan data product
-        $datakendaraan['kendaraans'] = Kendaraan::with('category_kendaraan')->get();
-        $datauser['kendaraans'] = Kendaraan::with('user')->get();
-        return view('user/profilekendaraan', $datakendaraan, $datauser);
+        $datakendaraan = Kendaraan::with(['category_kendaraan', 'user'])
+            ->where('user_id', $idUser)
+            ->orderBy('id', 'desc')
+            ->paginate(4);
+
+        return view('user/profilekendaraan', ['kendaraans' => $datakendaraan]);
     }
 
     public function createkendaraan(Request $request)

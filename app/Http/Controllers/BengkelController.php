@@ -38,6 +38,7 @@ class BengkelController extends Controller
         $bengkels->name = $request->bengkel_name;
         $bengkels->description = $request->bengkel_description;
         $bengkels->alamat = $request->bengkel_address;
+        $bengkels->link_alamat = $request->link_bengkel_address;
         $bengkels->image = $imageName;
         $bengkels->pemilik_id = $owner_id;
 
@@ -69,6 +70,7 @@ class BengkelController extends Controller
         $bengkel->name = $request->bengkel_name;
         $bengkel->description = $request->bengkel_description;
         $bengkel->alamat = $request->bengkel_address;
+        $bengkel->link_alamat = $request->link_bengkel_address;
         $bengkel->pemilik_id = $owner_id;
         $bengkel->save();
 

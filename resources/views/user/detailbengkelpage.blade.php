@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="detail-bengkel">
+    <div class="detail-bengkel p-5">
         @foreach ($bengkels as $bengkel)
             <div class="container my-4">
                 <div class="row gx-lg-5 d-flex align-items-center">
@@ -93,16 +93,13 @@
                         </table>
                     </div>
                 </div>
-                <div class="row gx-lg-5 d-flex align-items-center justify-content-center option p-3">
-                    <div class="col-lg-6 d-flex justify-content-center">
+                <div class="row option p-3">
+                    <div class="col d-flex justify-content-between align-items-center">
                         <div class="nama-bengkel">
                             <h5>{{ $bengkel->name }}</h5>
-                            <a href="#">Lihat di Peta >>></a>
+                            <a href="{{ $bengkel->link_alamat }}">Lihat di Peta >>></a>
                         </div>
-                    </div>
-                    <div class="col-lg-6 d-flex justify-content-center">
-                        <div class="hubungi ">
-                            <a href="#" class="btn btn-lg btn-outline-primary hubungi-bengkel">Hubungi Bengkel</a>
+                        <div class="hubungi">
                             <a href="/booking/add/{{ $bengkel->id }}" class="btn btn-lg btn-primary pesan-bengkel">Pesan
                                 Bengkel</a>
                         </div>

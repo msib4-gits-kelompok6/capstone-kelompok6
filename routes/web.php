@@ -54,7 +54,7 @@ Route::middleware(['auth:web'])->group(function () {
     Route::get('/profilekendaraan/{id}/edit', [ProfileUserController::class, 'editkendaraan']);
     Route::put('/profilekendaraan/{id}', [ProfileUserController::class, 'updatekendaraan']);
     Route::get('/servicepage', [ServiceController::class, 'index']);
-    Route::get('/detailbengkel/{id}', [ServiceController::class, 'detailBengkel']);
+    Route::get('/detailbengkelpage/{id}', [ServiceController::class, 'detailBengkel']);
     Route::get('/booking/add/{id}', [ServiceController::class, 'bookingPage']);
     Route::post('/booking', [BookingController::class, 'booking']);
 });
@@ -65,10 +65,12 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('/adminlistuser', [AdminController::class, 'listuser'])->name('showlistuser');
     Route::get('/adminlistbengkel', [AdminController::class, 'listbengkel'])->name('showlistbengkel');
     Route::get('/adminlistowner', [AdminController::class, 'listowner'])->name('showlistowner');
-    Route::get('/adminlistuser/{id}/delete', [AdminController::class, 'destroyuser'])->name('deletelistuser');
     Route::get('/detailuser/{id}', [AdminController::class, 'detailuser'])->name('detailuser');
     Route::get('/detailowner/{id}', [AdminController::class, 'detailowner'])->name('detailowner');
+    Route::get('/detailbengkel/{id}', [AdminController::class, 'detailbengkel'])->name('detailbengkel');
     Route::get('/adminlistowner/{id}/delete', [AdminController::class, 'destroyowner'])->name('deletelistowner');
+    Route::get('/adminlistuser/{id}/delete', [AdminController::class, 'destroyuser'])->name('deletelistuser');
+    Route::get('/adminlistbengkel/{id}/delete', [AdminController::class, 'destroybengkel'])->name('deletelistbengkel');
 });
 
 // BENGKEL
@@ -82,5 +84,6 @@ Route::prefix('/owner')->middleware('auth:pemilikbengkel')->group(function () {
 Route::prefix('/owner')->middleware(['auth:pemilikbengkel'])->group(function () {
     Route::get('/transaksi', [TransaksiController::class, 'transaksi'])->name('bengkeltransaksi');
     Route::get('/transaksi/{id}/edit', [TransaksiController::class, 'edittransaksi']);
+    Route::get('/transaksi/{id}', [TransaksiController::class, 'detailtransaksi']);
     Route::put('/transaksi/{id}', [TransaksiController::class, 'updatetransaksi'])->name('updatetransaksi');
 });

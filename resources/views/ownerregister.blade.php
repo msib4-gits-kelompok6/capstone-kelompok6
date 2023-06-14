@@ -14,24 +14,19 @@
 
     <style>
         .register-box {
-            border: solid 1px gray;
+            box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
             width: 500px;
             background-color: white;
-        }
-
-        body {
-            background-color: #e5e5f7;
-            opacity: 0.8;
-            background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #e5e5f7 10px), repeating-linear-gradient(#444cf755, #444cf7);
+            border-radius: 32px
         }
     </style>
 </head>
 
 <body>
-    <div class="vh-100 d-flex justify-content-center align-items-center">
-        <div class="register-box p-5 rounded">
+    <div class=" d-flex justify-content-center align-items-center my-5">
+        <div class="register-box p-5 ">
             <div class="title mb-3">
-                <h3 class="text-center">Welcome Owner</h3>
+                <h3 class="text-center">Welcome <span class="text-primary">Owner</span></h3>
                 <p class="text-secondary text-center">Enter your data to continue your journey</p>
             </div>
             <form method="POST" action="{{ route('do.ownerregister') }}">
@@ -85,7 +80,7 @@
                     <button class="btn btn-primary w-100" style="border-radius: 20px"
                         type="submit
                     ">Register</button>
-                    <p class="mt-3">
+                    <p class="mt-3 text-center">
                         Sudah punya akun?
                         <a href="{{ route('login') }}">silakan login.</a>
                     </p>

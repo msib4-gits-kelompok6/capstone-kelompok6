@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('image');
             $table->text('description');
             $table->longText('alamat');
-
+            $table->string('link_alamat');
             $table->timestamps();
         });
     }

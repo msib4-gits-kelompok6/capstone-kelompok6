@@ -13,10 +13,10 @@
                 <a href="{{ url('/') }}" class="text-white-50 mt-3">
                     Home
                 </a>
-                <a href="{{ url('servicepage') }}" class="text-white-50 mt-2">
+                <a href="{{ url('/servicepage') }}" class="text-white-50 mt-2">
                     Service
                 </a>
-                <a href="#" class="text-white-50 mt-2">
+                <a href="{{ url('/aboutpage') }}" class="text-white-50 mt-2">
                     About Us
                 </a>
                 @guest

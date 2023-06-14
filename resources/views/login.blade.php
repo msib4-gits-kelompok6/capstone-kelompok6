@@ -14,24 +14,20 @@
 
     <style>
         .login-box {
-            border: solid 1px gray;
+            /* border: solid 1px gray; */
+            box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
             width: 500px;
             background-color: white;
-        }
-
-        body {
-            background-color: #e5e5f7;
-            opacity: 0.8;
-            background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #e5e5f7 10px), repeating-linear-gradient(#444cf755, #444cf7);
+            border-radius: 32px
         }
     </style>
 </head>
 
 <body>
     <div class="vh-100 p-5 d-flex justify-content-center align-items-center">
-        <div class="login-box p-5 rounded">
+        <div class="login-box p-5">
             <div class="title mb-3">
-                <h3 class="text-center">Welcome Back to Bengkelin</h3>
+                <h3 class="text-center">Welcome Back to <span class="text-primary">Bengkelin</span></h3>
                 <p class="text-secondary text-center">Please enter your data</p>
             </div>
             <form method="POST" action="{{ route('login') }}">

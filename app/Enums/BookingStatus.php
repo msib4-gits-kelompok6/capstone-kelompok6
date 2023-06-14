@@ -7,6 +7,6 @@ enum BookingStatus: string
     case Pending = 'Pending';
     case Diterima = 'Diterima';
     case Selesai = 'Selesai';
-    case Dikerjakan = 'Sikerjakan';
+    case Dikerjakan = 'Dikerjakan';
     case Ditolak = 'Ditolak';
 }

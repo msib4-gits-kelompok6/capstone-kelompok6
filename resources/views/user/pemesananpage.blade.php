@@ -61,6 +61,8 @@
                                     <input type="datetime-local"
                                         class="form-control w-100 @error('waktu_booking') is-invalid @enderror"
                                         id="waktu_booking" name="waktu_booking">
+                                    <i class="text-secondary">* Pilih waktu dan tanggal booking sesuai dengan waktu
+                                        operasional Bengkel</i>
                                     @error('waktu_booking')
                                         <div class="alert alert-danger mt-2">
                                             {{ $message }}
@@ -100,15 +102,6 @@
                                     </div>
                                 @endforeach
                             @endforeach
-                            {{-- <select class="form-select @error('layanan_id') is-invalid @enderror" id="layanan_id"
-                                name="layanan_id">
-                                @foreach ($bengkels as $bengkel)
-                                    @foreach ($bengkel->layanans as $layanan)
-                                        <option value="{{ $layanan->id }}">{{ $layanan->name }} |
-                                            {{ $layanan->price }}</option>
-                                    @endforeach
-                                @endforeach
-                            </select> --}}
                         </div>
 
                         <div class="mb-5">
@@ -116,7 +109,6 @@
                             <textarea class="form-control" id="catatan_tambahan" name="catatan_tambahan" rows="3"
                                 placeholder="Tambahkan catatan tambahan disini"></textarea>
                         </div>
-                        {{-- <div class="shadow p-3 mb-5 bg-body-tertiary rounded harga">Total <span>Rp.100.000</span></div> --}}
                         <div class="col-lg-12 d-flex justify-content-end">
                             <button type="submit" class="btn btn-lg btn-primary btn-pesan">Selanjutnya</button>
                         </div>

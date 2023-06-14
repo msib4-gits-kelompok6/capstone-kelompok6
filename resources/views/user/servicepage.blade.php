@@ -49,7 +49,7 @@
                                     <img src="{{ asset('css/icon-location.png') }}">
                                     <p>{{ $bengkel->alamat }}</p>
                                 </div>
-                                <a href="/detailbengkel/{{ $bengkel->id }}" class="btn btn-primary">Lihat Bengkel</a>
+                                <a href="/detailbengkelpage/{{ $bengkel->id }}" class="btn btn-primary">Lihat Bengkel</a>
                             </div>
                         </div>
                     </div>

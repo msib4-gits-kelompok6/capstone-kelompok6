@@ -11,7 +11,7 @@
             <div class="section-title">
                 <h2>Our Team</h2>
                 <div class="underline"></div>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati, ducimus.</p>
+                <p>Kelompok 6 Alias Rangkong, para peserta Studi Independen dari mitra PT GITS Indonesia</p>
             </div>
 
             <div class="row ">
@@ -59,9 +59,7 @@
                         <div class="member-info">
                             <h4>Ristian Naufal Apriliawan</h4>
                             <span>Universitas Dian Nuswantoro</span>
-                            <p>"Bukan bahagia yang menjadikan kita bersyukur, tetapi dengan bersyukurlah yang akan
-                                menjadikan
-                                hidup kita bahagia"</p>
+                            <p>"Nrima Ing Pandum"</p>
                             <div class="social">
                                 <a href=""><i class="bi bi-facebook"></i></a>
                                 <a href=""><i class="bi bi-instagram"></i></a>
@@ -93,7 +91,8 @@
 
                 <div class="col-lg-6 mt-4">
                     <div class="member d-flex align-items-stretch">
-                        <div class="teampic"><img src="css/mila.jpg" class="img-fluid" alt=""></div>
+                        <div class="teampic" style="width: 250px"><img src="css/mila.jpg" class="img-fluid" alt="">
+                        </div>
                         <div class="member-info">
                             <h4>Siti Kamila Tunawa</h4>
                             <span>Universitas Qomaruddin</span>

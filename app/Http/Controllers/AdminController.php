@@ -70,15 +70,36 @@ class AdminController extends Controller
         return view('admin/detailowner', ['bengkels' => $databengkel, 'pemilik_bengkels' => $owner, 'owners_count' => $ownerCount, 'users_count' => $userCount, 'bengkels_count' => $bengkelCount]);
     }
 
+    public function detailbengkel($id)
+    {
+        $userCount = User::count();
+        $bengkelCount = Bengkel::count();
+        $ownerCount = PemilikBengkel::count();
+        $bengkel = Bengkel::findOrFail($id);
+
+        $booking = Booking::with(['kendaraan', 'user', 'bengkel'])
+            ->get();
+
+        $detail_booking = DetailLayananBooking::with(['booking', 'layanan'])->get();
+        // dd($datatransaksi);
+        return view('admin/detailbengkel', ['transaksi' => $booking, 'detail_booking' => $detail_booking, 'bengkels' => $bengkel, 'owners_count' => $ownerCount, 'users_count' => $userCount, 'bengkels_count' => $bengkelCount]);
+    }
+
     public function destroyowner($id)
     {
         PemilikBengkel::destroy($id);
-        return redirect(route('showlistowner'));
+        return redirect(route('showlistowner'))->with('success', 'Owner Berhasil Dihapus!');
     }
 
     public function destroyuser($id)
     {
         User::destroy($id);
-        return redirect(route('showlistuser'));
+        return redirect(route('showlistuser'))->with('success', 'User Berhasil Dihapus!');
+    }
+
+    public function destroybengkel($id)
+    {
+        Bengkel::destroy($id);
+        return redirect(route('showlistbengkel'))->with('success', 'Bengkel Berhasil Dihapus!');
     }
 }

@@ -11,34 +11,43 @@
         </div>
         <div class="row">
             <div class="col">
-                <table class="table" id="table-bengkel">
-                    <thead>
-                        <tr>
-                            <th>No.</th>
-                            <th>Nama Pelanggan</th>
-                            <th>Waktu</th>
-                            <th>Tipe Booking</th>
-                            <th>Status</th>
-                            <th>Kendaraan</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($bookings as $item)
+                @if ($bookings->isEmpty())
+                    <p class="text-center fw-bold">Bengkel belum memliki transaksi</p>
+                @else
+                    <table class="table" id="table-bengkel">
+                        <thead>
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->user->name }}</td>
-                                <td>{{ $item->waktu_booking }}</td>
-                                <td>{{ $item->tipe_booking }}</td>
-                                <td>{{ $item->status }}</td>
-                                <td>{{ $item->kendaraan->model }}</td>
-                                <td>
-                                    <a href="transaksi/{{ $item->id }}/edit" class="btn btn-sm btn-info">Edit</a>
-                                </td>
+                                <th>No.</th>
+                                <th>Nama Pelanggan</th>
+                                <th>Waktu</th>
+                                <th>Tipe Booking</th>
+                                <th>Status</th>
+                                <th>Kendaraan</th>
+                                <th>Nama Bengkel</th>
+                                <th>Action</th>
+
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach ($bookings as $item)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->user->name }}</td>
+                                    <td>{{ $item->waktu_booking }}</td>
+                                    <td>{{ $item->tipe_booking }}</td>
+                                    <td>{{ $item->status }}</td>
+                                    <td>{{ $item->kendaraan->model }}</td>
+                                    <td>{{ $item->bengkel->name }}</td>
+                                    <td>
+                                        <a href="transaksi/{{ $item->id }}/edit" class="btn btn-sm btn-info">Edit</a>
+                                        <a href="transaksi/{{ $item->id }}" class="btn btn-sm btn-warning">Detail
+                                            Transaksi</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                @endif
             </div>
         </div>
         {{-- <div class="mt-5">

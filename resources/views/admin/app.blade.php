@@ -92,6 +92,7 @@
 
                 <!-- Default box -->
                 @yield('content')
+                @include('sweetalert::alert')
                 <!-- /.card -->
 
             </section>

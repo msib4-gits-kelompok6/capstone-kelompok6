@@ -51,18 +51,19 @@
                     <div class="form mb-3">
                         <label for="kategori" class="form-label">Kategori Kendaraan</label>
                         <select class="form-select @error('category_kendaraan_id') is-invalid @enderror"
-                            aria-label="Default select example" name="category_kendaraan_id">
+                            aria-label="Default select example" name="category_kendaraan_id" id="category_kendaraan_id">
                             <option selected>Pilih Category</option>
                             @foreach ($category_kendaraan as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
                         </select>
+                        @error('category_kendaraan_id')
+                            <div class="invalid-feedback">
+                                Kategori tidak boleh kosong
+                            </div>
+                        @enderror
                     </div>
-                    @error('category_kendaraan_id')
-                        <div class="invalid-feedback">
-                            Kategori tidak boleh kosong
-                        </div>
-                    @enderror
+
                     <div class="action-user d-flex justify-content-end align-items-center">
                         <button type="submit" class="btn btn-primary mt-3">Submit</button>
                     </div>
